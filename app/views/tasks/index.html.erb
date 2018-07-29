@@ -2,11 +2,15 @@
     <% @tasks.each_slice(4) do |row| %>
     <% row.each do |task| %>
     <div class="col" style="padding:5px;">
-      <div class="card" style="padding:10px;">
+      <div class="card" align="center" style="padding:10px;">
         <%= image_tag task.photo, class: 'img-thumbnail' %>
         <div class="body">
     <h5><%= link_to "#{task.name}", task_path(task) %></h5>
-    <%= link_to "check", task_user_tasks_path(task) , class: 'btn btn-primary', method: :post %>
+     <% if UserTask.find_by(user_id: current_user.id , task_id: task.id, check: true) != nil %>
+    <%= link_to "Desmarcar", task_user_tasks_path(task) , class: 'btn btn-danger', method: :post %>
+     <% else %>
+     <%= link_to "Marcar", task_user_tasks_path(task) , class: 'btn btn-primary', method: :post %>
+      <% end %>
 </div>
 </div>
   </div>
