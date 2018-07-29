@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col">
+  <p>
+    <strong></strong>
+    <%= image_tag @task.photo, class: 'img_responsive' %>
+  </p>
+  </div>
+  <div class="col">
+<h3>
+  <strong><%= @task.name %></strong>
+</h3>
+<table>
+  <h3>Usuarios que la han completado</h3>
+<% @task.users.each do |j| %>
+<tr>
+<td><%= j.name %></td>
+</tr>
+<% end %>
+</div>
+</table>
+</div>
+<div class="col">
+  <table>
+<strong>Ranking:</strong><br>
+<% @order.each do |j| %>
+<tr>
+<td> <%= image_tag j.photo %> </td>
+<td><%= j.name %></td>
+<td><%= j.updated_at %></td>
+</tr>
+<% end %>
+</div>
+</table>
+<!--<div class="col">
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
+</div> -->
+</div>

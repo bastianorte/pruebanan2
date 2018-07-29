@@ -1,0 +1,21 @@
+<div class="row">
+<div class="col">
+
+  <h3>Tarea Completadas</h3>
+<table>
+  <tr>
+    <td>
+<% @user_task.each do |k| %>
+<p><%= k.task.name %></p>
+<% end %>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>Total</td>
+<td> <%= @user_task.map{|x| x}.count %> </td>
+<tr>
+</table>
+</div>
+</div>

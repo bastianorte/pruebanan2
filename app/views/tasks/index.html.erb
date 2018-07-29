@@ -1,0 +1,16 @@
+<div class="row">
+    <% @tasks.each_slice(4) do |row| %>
+    <% row.each do |task| %>
+    <div class="col" style="padding:5px;">
+      <div class="card" style="padding:10px;">
+        <%= image_tag task.photo, class: 'img-thumbnail' %>
+        <div class="body">
+    <h5><%= link_to "#{task.name}", task_path(task) %></h5>
+    <%= link_to "check", task_user_tasks_path(task) , class: 'btn btn-primary', method: :post %>
+</div>
+</div>
+  </div>
+    <% end %>
+    <div class="w-100"></div>
+    <% end %>
+</div>
